@@ -39,9 +39,8 @@ public class BaseConverter {
         if (number.contains(".")) {
             String[] parts = number.split("\\.");
             String integerPart = parts[0];
-            String fractionalPart = parts[1];
-
-            messageMap.put("title_0", "INTEGER number: " + integerPart + "\t " + "FRACTIONAL part: " + fractionalPart);
+            String fractionalPart = "0." + parts[1];
+            // messageMap.put("title_0", "INTEGER number: " + integerPart + "\t " + "FRACTIONAL part: " + fractionalPart);
 
             String integerResult = convertBase(integerPart, fromBase, toBase);
             String fractionalResult = convertFractionalPart(fractionalPart, fromBase, toBase);
@@ -51,23 +50,27 @@ public class BaseConverter {
             while (result.endsWith("0")) {
                 result = result.substring(0, result.length() - 1);
             }
+            this.input = parts[0] + "." + parts[1];
 
             return result;
         }
+        if (Integer.parseInt(number, fromBase) == 0) {
+            return "0";
+        }
         int base10Value;
         if (fromBase != 10) {
-            messageMap.put("title_1", "INTEGER NUMBER: " + number + " TO BASE 10.");
+            messageMap.put("title_1", "Number: " + number + " To Base10");
             base10Value = integerToBase10(number, fromBase);
-            messageMap.put("title_2", "CONVERTED TO BASE 10: " + base10Value);
+            messageMap.put("title_2", "Equivalent to Base10: " + base10Value);
         } else {
             base10Value = Integer.parseInt(number);
 
         }
 
         if (toBase != 10) {
-            messageMap.put("title_3", "CONVERTING BASE 10: " + base10Value + " TO BASE " + toBase + ".");
+            messageMap.put("title_3", "Number: " + base10Value + " To Base" + toBase);
             result = integerFromBase10(base10Value, toBase);
-            messageMap.put("title_4", "INTEGER CONVERTED FROM BASE 10: " + result);
+            messageMap.put("title_4", "Read from bottom to up: " + result);
         } else {
             result = base10Value + "";
         }
@@ -79,7 +82,7 @@ public class BaseConverter {
         int result = 0;
         int power = 0;
 
-        messageMap.put("theader_3", new String[]{"Character - Digit", "fromBase", "Exponent", "Result"});
+        messageMap.put("theader_3", new String[]{"Digit - Position", "Solution", "Result"});
 
         for (int i = number.length() - 1; i >= 0; i--) {
             char currentChar = number.charAt(i);
@@ -98,7 +101,10 @@ public class BaseConverter {
             result += base10digit;
 
             messageMap.put("trow_3_" + i,
-                    new String[]{currentChar + " - " + digit, fromBase + "", power + "", base10digit + ""});
+                    new String[]{
+                        digit + " - " + power + "",
+                        String.format("%d * (%d) ^ %d", digit, fromBase, power),
+                        base10digit + ""});
 
             power++;
         }
@@ -108,7 +114,7 @@ public class BaseConverter {
     private String integerFromBase10(int number, int toBase) {
         StringBuilder result = new StringBuilder();
 
-        messageMap.put("theader_4", new String[]{"Number", "To Base", "Quotient", "Ramainder", "Result"});
+        messageMap.put("theader_4", new String[]{"Division", "Quotient", "Remainder"});
         int i = 0;
         while (number > 0) {
             int quotient = number / toBase;
@@ -117,7 +123,7 @@ public class BaseConverter {
             result.insert(0, toStr);
 
             messageMap.put("trow_4_" + i,
-                    new String[]{number + "", toBase + "", quotient + "", remainder + "", toStr});
+                    new String[]{number + "/" + toBase + "", quotient + "", remainder + ""});
 
             number /= toBase;
             i++;
@@ -141,7 +147,7 @@ public class BaseConverter {
             messageMap.put("title_7",
                     "CONVERTING FRACTION BASE 10: " + String.format("%.7f", base10Value) + " TO BASE " + toBase + ".");
             result = fractionFromBase10(base10Value, toBase);
-            messageMap.put("title_8", "FRACTION CONVERTED FROM BASE10: " + result);
+            messageMap.put("title_8", "Read from top to bottom: " + result);
         } else {
             result = base10Value + "";
         }
@@ -152,18 +158,26 @@ public class BaseConverter {
     private double fractionToBase10(String number, int fromBase) {
         double result = 0;
         int power = -1;
+        number = number.split("\\.")[1];
 
-        messageMap.put("theader_1", new String[]{"Character - Digit", "fromBase", "Exponent", "Result"});
+        messageMap.put("theader_1", new String[]{"Digit - Position", "Solution", "Product"});
 
         for (int i = 0; i < number.length(); i++) {
+            
             char character = number.charAt(i);
+            if (character == '.') {
+                continue;
+            }
             int digit = Character.digit(character, fromBase);
             double base10digit = digit * Math.pow(fromBase, power);
             result += base10digit;
 
             messageMap.put("trow_1_" + i,
-                    new String[]{character + " - " + digit, fromBase + "", power + "",
-                        String.format("%.7f", base10digit)});
+                    new String[]{
+                        character + " - " + Math.abs(power), 
+                        String.format("%d * (%d)^(%d) ", digit, fromBase, power),
+                        String.format("%.6f", base10digit)
+                    });
 
             power--;
         }
@@ -171,12 +185,13 @@ public class BaseConverter {
     }
 
     private String fractionFromBase10(double base10value, int toBase) {
-        int digitCounts = 5;
+        int digitCounts = 6;
         StringBuilder resultBuilder = new StringBuilder();
 
-        messageMap.put("theader_2", new String[]{"Base 10 * toBase", "Fractional Part", "Integer Part", "Result"});
+        messageMap.put("theader_2", new String[]{"Digit * Base", "Product", "Integer Part"});
 
         for (int i = 0; i < digitCounts; i++) {
+            double prev = base10value;
             double product = base10value * toBase;
             base10value = product;
 
@@ -186,18 +201,18 @@ public class BaseConverter {
             base10value -= integerPart;
 
             messageMap.put("trow_2_" + i,
-                    new String[]{String.format("%.7f", product), String.format("%.7f", base10value) + "",
-                        integerPart + "",
-                        resultBuilder.toString()});
-
+                    new String[]{
+                        String.format("%.6f * %d = ", prev, toBase),
+                        String.format("%.6f", product) + "",
+                        integerPart + ""
+                    });
         }
 
         return resultBuilder.toString();
     }
     //
     // ########################################################################
-    
-    
+
     // ########################################################################
     // CLASS METHODS
     // ########################################################################

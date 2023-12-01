@@ -139,8 +139,7 @@ public class SolutionsPanel extends javax.swing.JPanel {
                 }
             }
         }
-        scrollPanel.add((new TableRow(new String[]{})));
-        scrollPanel.add(new TitleContainer((String) "CONVERETED Result: " + baseConverter.getResult()));
+        scrollPanel.add(new TitleContainer((String) "CONVERTED Result: " + baseConverter.getResult()));
 
     }//GEN-LAST:event_formComponentShown
 

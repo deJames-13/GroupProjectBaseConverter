@@ -6,9 +6,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-
 public class MainContentPanel extends javax.swing.JPanel {
-    
+
     private MainFrame mainFrame;
     private String input;
     private int fromBase;
@@ -23,16 +22,16 @@ public class MainContentPanel extends javax.swing.JPanel {
         this.setMinimumSize(new Dimension(644, 374));
         initializeBases();
     }
-    // #########################################################################    
+    // #########################################################################
     // CODE
     // #########################################################################
-    
+
     // initialize values for combo boxes
     private void initializeBases() {
         ArrayList<String> stringList = new ArrayList<>();
-        
+
         int MAX_BASE = 16;
-        
+
         for (int i = 2; i <= MAX_BASE; i++) {
             String str = i + " ";
             switch (i) {
@@ -55,7 +54,7 @@ public class MainContentPanel extends javax.swing.JPanel {
         txtConverted.setText("0");
 
     }
-    
+
     public void setFromBase(int base) {
         this.fromBase = base;
     }
@@ -63,7 +62,6 @@ public class MainContentPanel extends javax.swing.JPanel {
     public void setToBase(int base) {
         this.toBase = base;
     }
-
 
     private int getBaseInt(String baseStr) {
         int base = 0;
@@ -86,13 +84,12 @@ public class MainContentPanel extends javax.swing.JPanel {
                 this,
                 message,
                 title,
-                JOptionPane.ERROR_MESSAGE
-        );
+                JOptionPane.ERROR_MESSAGE);
     }
 
-
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         mainContent = new javax.swing.JPanel();
@@ -127,7 +124,9 @@ public class MainContentPanel extends javax.swing.JPanel {
         setLayout(new java.awt.BorderLayout());
 
         mainContent.setBackground(new java.awt.Color(128, 213, 200));
-        mainContent.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(1, 1, 1), 2, true), javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+        mainContent.setBorder(javax.swing.BorderFactory.createCompoundBorder(
+                new javax.swing.border.LineBorder(new java.awt.Color(1, 1, 1), 2, true),
+                javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
         mainContent.setLayout(new java.awt.BorderLayout());
 
         buttonsPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 20, 0, 20));
@@ -193,14 +192,22 @@ public class MainContentPanel extends javax.swing.JPanel {
         mainContent.add(buttonsPane, java.awt.BorderLayout.PAGE_END);
 
         inputPane.setBackground(new java.awt.Color(248, 244, 255));
-        inputPane.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.darkGray, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray), javax.swing.BorderFactory.createEmptyBorder(20, 30, 20, 30)));
+        inputPane
+                .setBorder(
+                        javax.swing.BorderFactory.createCompoundBorder(
+                                javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED,
+                                        java.awt.Color.darkGray, java.awt.Color.lightGray, java.awt.Color.lightGray,
+                                        java.awt.Color.darkGray),
+                                javax.swing.BorderFactory.createEmptyBorder(20, 30, 20, 30)));
         inputPane.setAutoscrolls(true);
         inputPane.setMaximumSize(new java.awt.Dimension(1000, 1000));
         inputPane.setMinimumSize(new java.awt.Dimension(620, 290));
         inputPane.setPreferredSize(new java.awt.Dimension(620, 290));
         inputPane.setLayout(new java.awt.GridLayout(4, 2, 10, 5));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0), javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+        jPanel1.setBorder(
+                javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0),
+                        javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
         jPanel1.setMaximumSize(new java.awt.Dimension(500, 50));
         jPanel1.setMinimumSize(new java.awt.Dimension(260, 50));
         jPanel1.setOpaque(false);
@@ -214,7 +221,9 @@ public class MainContentPanel extends javax.swing.JPanel {
 
         inputPane.add(jPanel1);
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0), javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+        jPanel4.setBorder(
+                javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0),
+                        javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
         jPanel4.setMaximumSize(new java.awt.Dimension(1000, 50));
         jPanel4.setMinimumSize(new java.awt.Dimension(260, 50));
         jPanel4.setOpaque(false);
@@ -232,7 +241,9 @@ public class MainContentPanel extends javax.swing.JPanel {
 
         inputPane.add(jPanel4);
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0), javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+        jPanel5.setBorder(
+                javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0),
+                        javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
         jPanel5.setMaximumSize(new java.awt.Dimension(500, 50));
         jPanel5.setMinimumSize(new java.awt.Dimension(260, 50));
         jPanel5.setOpaque(false);
@@ -246,7 +257,9 @@ public class MainContentPanel extends javax.swing.JPanel {
 
         inputPane.add(jPanel5);
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0), javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+        jPanel6.setBorder(
+                javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0),
+                        javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
         jPanel6.setMaximumSize(new java.awt.Dimension(1000, 50));
         jPanel6.setMinimumSize(new java.awt.Dimension(260, 50));
         jPanel6.setOpaque(false);
@@ -269,7 +282,9 @@ public class MainContentPanel extends javax.swing.JPanel {
 
         inputPane.add(jPanel6);
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0), javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+        jPanel7.setBorder(
+                javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0),
+                        javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
         jPanel7.setMaximumSize(new java.awt.Dimension(500, 50));
         jPanel7.setMinimumSize(new java.awt.Dimension(260, 50));
         jPanel7.setOpaque(false);
@@ -283,7 +298,9 @@ public class MainContentPanel extends javax.swing.JPanel {
 
         inputPane.add(jPanel7);
 
-        jPanel8.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0), javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+        jPanel8.setBorder(
+                javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0),
+                        javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
         jPanel8.setMaximumSize(new java.awt.Dimension(1000, 50));
         jPanel8.setMinimumSize(new java.awt.Dimension(260, 50));
         jPanel8.setOpaque(false);
@@ -305,7 +322,9 @@ public class MainContentPanel extends javax.swing.JPanel {
 
         inputPane.add(jPanel8);
 
-        jPanel9.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0), javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+        jPanel9.setBorder(
+                javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0),
+                        javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
         jPanel9.setMaximumSize(new java.awt.Dimension(500, 50));
         jPanel9.setMinimumSize(new java.awt.Dimension(260, 50));
         jPanel9.setOpaque(false);
@@ -319,7 +338,9 @@ public class MainContentPanel extends javax.swing.JPanel {
 
         inputPane.add(jPanel9);
 
-        jPanel10.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0), javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+        jPanel10.setBorder(
+                javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0),
+                        javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10)));
         jPanel10.setMaximumSize(new java.awt.Dimension(1000, 50));
         jPanel10.setMinimumSize(new java.awt.Dimension(260, 50));
         jPanel10.setOpaque(false);
@@ -331,7 +352,13 @@ public class MainContentPanel extends javax.swing.JPanel {
         txtConverted.setFont(new java.awt.Font("Lexend", 0, 14)); // NOI18N
         txtConverted.setForeground(new java.awt.Color(13, 13, 13));
         txtConverted.setText("0");
-        txtConverted.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.darkGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.lightGray), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        txtConverted
+                .setBorder(
+                        javax.swing.BorderFactory.createCompoundBorder(
+                                javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED,
+                                        java.awt.Color.darkGray, java.awt.Color.lightGray, java.awt.Color.darkGray,
+                                        java.awt.Color.lightGray),
+                                javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         txtConverted.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtConverted.setMaximumSize(new java.awt.Dimension(1000, 50));
         txtConverted.setMinimumSize(new java.awt.Dimension(250, 50));
@@ -345,14 +372,14 @@ public class MainContentPanel extends javax.swing.JPanel {
         add(mainContent, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSwapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSwapActionPerformed
+    private void btnSwapActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSwapActionPerformed
         // TODO add your handling code here:
         int temp = cmbFromBase.getSelectedIndex();
         cmbFromBase.setSelectedIndex(cmbToBase.getSelectedIndex());
         cmbToBase.setSelectedIndex(temp);
-    }//GEN-LAST:event_btnSwapActionPerformed
+    }// GEN-LAST:event_btnSwapActionPerformed
 
-    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
         cmbFromBase.setSelectedIndex(0);
         cmbToBase.setSelectedIndex(0);
@@ -360,13 +387,13 @@ public class MainContentPanel extends javax.swing.JPanel {
         txtConverted.setText("0");
         mainFrame.btnWrapper.setVisible(false);
         baseConverter.clearMap();
-    }//GEN-LAST:event_btnResetActionPerformed
+    }// GEN-LAST:event_btnResetActionPerformed
 
-    private void btnConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertActionPerformed
+    private void btnConvertActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnConvertActionPerformed
         input = txtNumber.getText();
-   
+
         try {
-            baseConverter.clearMap();   
+            baseConverter.clearMap();
             String result = baseConverter.convertBase(input, fromBase, toBase);
             txtConverted.setText(result);
             if (!mainFrame.btnWrapper.isVisible() && !txtConverted.getText().isEmpty()) {
@@ -375,20 +402,19 @@ public class MainContentPanel extends javax.swing.JPanel {
         } catch (Exception e) {
             showErrorDialog(e.getMessage(), "Error while converting.");
         }
-    }//GEN-LAST:event_btnConvertActionPerformed
+    }// GEN-LAST:event_btnConvertActionPerformed
 
-    private void cmbFromBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFromBaseActionPerformed
+    private void cmbFromBaseActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cmbFromBaseActionPerformed
         String selectedBase = (String) cmbFromBase.getSelectedItem();
         int base = this.getBaseInt(selectedBase);
         this.setFromBase(base);
-    }//GEN-LAST:event_cmbFromBaseActionPerformed
+    }// GEN-LAST:event_cmbFromBaseActionPerformed
 
-    private void cmbToBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbToBaseActionPerformed
+    private void cmbToBaseActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cmbToBaseActionPerformed
         String selectedBase = (String) cmbToBase.getSelectedItem();
         int base = this.getBaseInt(selectedBase);
         this.setToBase(base);
-    }//GEN-LAST:event_cmbToBaseActionPerformed
-
+    }// GEN-LAST:event_cmbToBaseActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConvert;
